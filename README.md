@@ -34,26 +34,23 @@ Choose icons from several fonts:
 The kitchen sink
 ----------------
 
-    fontBuilder(
-        {
-            fontname: 'streamline',
-            stylesDirectory: './Static/css',
-            fontsDirectory: './Static/fonts',
-            defaultFont: './streamline-24px/fonts/streamline-24px.svg',
-            fonts: {
-                'fi': './streamline-24px-filled-in/fonts/streamline-24px-filled-in.svg',
-                'fa': './font-awesome/fonts/fontawesome-webfont.svg'
-            },
-            glyphs: {
-                'e62a': 'arrow-left',
-                'e62b': 'arrow-right',
-                'fi:e124': 'mail',
-                'fa:f08c': 'linkedin',
-                'fa:f082': 'facebook',
-                'fa:f16d': 'instagram'
-            }
-        }
-    );
+    var defaults = {
+        fontname: 'built-font',
+        fonts: [],
+        defaultFont: null,
+        glyphs: [],
+        outputScss: true
+    };
+    var fontDefaults = {
+        fontUnitsPerEm: 512,
+        ascent: 480,
+        descent: -32,
+        horizAdvX: 512
+    };
+    var pathDefaults = {
+        stylesDirectory: './css',
+        fontsDirectory: './fonts'
+    };
 
 Credits
 =======
