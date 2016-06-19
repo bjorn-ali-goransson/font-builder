@@ -155,6 +155,7 @@ module.exports = function (arg1, arg2) {
     scssOutput += '  display: inline-block;' + "\n";
     scssOutput += '  font-family: \'' + options.fontname + '\';' + "\n";
     scssOutput += '  font-style: normal;' + "\n";
+    scssOutput += '  font-weight: normal;' + "\n";
     scssOutput += '  line-height: 1;' + "\n";
     scssOutput += '  vertical-align: middle;' + "\n";
     scssOutput += '  font-size: inherit;' + "\n";
