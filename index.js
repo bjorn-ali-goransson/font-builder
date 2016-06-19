@@ -152,6 +152,7 @@ module.exports = function (arg1, arg2) {
     var scssOutput = '';
 
     scssOutput += '@mixin icon {' + "\n";
+    scssOutput += '  display: inline-block;' + "\n";
     scssOutput += '  font-family: \'' + options.fontname + '\';' + "\n";
     scssOutput += '  font-style: normal;' + "\n";
     scssOutput += '  line-height: 1;' + "\n";
