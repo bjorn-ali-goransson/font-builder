@@ -57,7 +57,7 @@ Example of generated _icons.scss file
 
     @mixin icon {
       display: inline-block;
-      font-family: 'rsmco';
+      font-family: 'built-font';
       font-style: normal;
       font-weight: normal;
       font-size: inherit;
