@@ -51,6 +51,37 @@ The kitchen sink
         stylesDirectory: './css',
         fontsDirectory: './fonts'
     };
+    
+Example of generated _icons.scss file
+-------------------------------------
+
+    @mixin icon {
+      display: inline-block;
+      font-family: 'rsmco';
+      font-style: normal;
+      font-weight: normal;
+      font-size: inherit;
+      line-height: 1;
+      vertical-align: middle;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .icon { @include icon; }
+
+    @mixin icon-arrow-left   { content: '\e62a'; }
+    @mixin icon-arrow-right  { content: '\e62b'; }
+    @mixin icon-search       { content: '\e01f'; }
+
+    .icon-arrow-left:before  { @include icon-arrow-left; }
+    .icon-arrow-right:before { @include icon-arrow-right; }
+    .icon-search:before      { @include icon-search; }
+  
+Example of using the font in HTML
+---------------------------------
+
+    <i class="icon icon-search"></i>
 
 Credits
 =======
