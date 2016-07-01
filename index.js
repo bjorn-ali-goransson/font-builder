@@ -156,11 +156,11 @@ module.exports = function (arg1, arg2) {
     
     scssOutput += '@font-face {' + "\n";
     scssOutput += '  font-family: \'' + options.fontname + '\';' + "\n";
-    scssOutput += '  src: url(\'' + path.join(options.fontsUrl, options.fontname + '.eot?' + hex) + '\');' + "\n";
-    scssOutput += '  src: url(\'' + path.join(options.fontsUrl, options.fontname + '.eot?' + hex + '#iefix') + '\') format(\'embedded-opentype\'),' + "\n";
-    scssOutput += '    url(\'' + path.join(options.fontsUrl, options.fontname + '.ttf?' + hex) + '\') format(\'truetype\'),' + "\n";
-    scssOutput += '    url(\'' + path.join(options.fontsUrl, options.fontname + '.woff?' + hex) + '\') format(\'woff\'),' + "\n";
-    scssOutput += '    url(\'' + path.join(options.fontsUrl, options.fontname + '.svg?' + hex + '#svgfont') + '\') format(\'svg\');' + "\n";
+    scssOutput += '  src: url(\'' + path.join(options.fontsUrl, options.fontname + '.eot?' + hex).replace(/\\/g, '/') + '\');' + "\n";
+    scssOutput += '  src: url(\'' + path.join(options.fontsUrl, options.fontname + '.eot?' + hex + '#iefix').replace(/\\/g, '/') + '\') format(\'embedded-opentype\'),' + "\n";
+    scssOutput += '    url(\'' + path.join(options.fontsUrl, options.fontname + '.ttf?' + hex).replace(/\\/g, '/') + '\') format(\'truetype\'),' + "\n";
+    scssOutput += '    url(\'' + path.join(options.fontsUrl, options.fontname + '.woff?' + hex).replace(/\\/g, '/') + '\') format(\'woff\'),' + "\n";
+    scssOutput += '    url(\'' + path.join(options.fontsUrl, options.fontname + '.svg?' + hex + '#svgfont').replace(/\\/g, '/') + '\') format(\'svg\');' + "\n";
     scssOutput += '  font-weight: normal;' + "\n";
     scssOutput += '  font-style: normal;' + "\n";
     scssOutput += '}';
