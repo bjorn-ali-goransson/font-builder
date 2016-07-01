@@ -1,6 +1,6 @@
 {
   "name": "font-builder",
-  "version": "1.2.10",
+  "version": "1.3.1",
   "description": "Glyphs you want from web fonts you want",
   "main": "index.js",
   "author": "",

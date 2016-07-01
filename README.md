@@ -1,6 +1,5 @@
 Also generates .scss mixins and classes for you to use, with correct code points and aliases.
 
-
 Usage
 ---------------------------------
 
