@@ -6,21 +6,10 @@ var XMLDOMParser  = require('xmldom').DOMParser;
 
 
 
-module.exports = function (arg1, arg2) {
-  var options = {};
-
-  if (typeof arg1 == 'string' && typeof arg2 == 'object') {
-    options = {};
-    options.defaultFont = arg1;
-    options.glyphs = arg2;
-  } else {
-    options = arg1;
-  }
-
+module.exports = function (options) {
   var defaults = {
     fontname: 'built-font',
     fonts: [],
-    defaultFont: null,
     glyphs: [],
     outputScss: true
   };
@@ -78,8 +67,6 @@ module.exports = function (arg1, arg2) {
   
   var resultingGlyphs = [];
 
-  var defaultSvgSource = options.defaultFont ? loadSvg(options.defaultFont) : null;
-  
   var sources = {}
 
   _.each(options.fonts, function (fontPath, fontAlias) {
@@ -87,15 +74,15 @@ module.exports = function (arg1, arg2) {
   });
   
   _.each(options.glyphs, function (alias, name) {
-    var source = defaultSvgSource;
-    
-    if(name.indexOf(':') != -1){
-      var nameSplit = name.split(':');
-      
-      name = nameSplit[1];
-      
-      source = sources[nameSplit[0]];
+    if(name.indexOf(':') == -1){
+      throw 'Glyph key ' + name + ' was not prefixed (which font should I use?)';
+      return;
     }
+    
+    var nameSplit = name.split(':');
+    
+    var name = nameSplit[1];
+    var source = sources[nameSplit[0]];
 
     var unicodeValue = parseInt(name, 16);
     
