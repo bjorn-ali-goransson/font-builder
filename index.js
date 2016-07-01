@@ -32,7 +32,8 @@ module.exports = function (arg1, arg2) {
   };
   var pathDefaults = {
     stylesDirectory: './styles',
-    fontsDirectory: './fonts'
+    fontsDirectory: './fonts',
+    fontsUrl: ''
   };
 
   options = _.assign({}, defaults, fontDefaults, pathDefaults, options);
@@ -149,7 +150,21 @@ module.exports = function (arg1, arg2) {
   fs.writeFileSync(path.join(options.fontsDirectory, options.fontname + '.svg'), svgOutput, 'utf8');
   
   if (options.outputScss) {
+    var hex = Math.floor(Math.random()*16777215).toString(16);
+    
     var scssOutput = '';
+    
+    scssOutput += '@font-face {' + "\n";
+    scssOutput += '  font-family: \'' + options.fontname + '\';' + "\n";
+    scssOutput += '  src: url(\'' + path.join(options.fontsUrl, options.fontname + '.eot?' + hex) + '\');' + "\n";
+    scssOutput += '  src: url(\'' + path.join(options.fontsUrl, options.fontname + '.eot?' + hex + '#iefix') + '\') format(\'embedded-opentype\'),' + "\n";
+    scssOutput += '    url(\'' + path.join(options.fontsUrl, options.fontname + '.ttf?' + hex) + '\') format(\'truetype\'),' + "\n";
+    scssOutput += '    url(\'' + path.join(options.fontsUrl, options.fontname + '.woff?' + hex) + '\') format(\'woff\'),' + "\n";
+    scssOutput += '    url(\'' + path.join(options.fontsUrl, options.fontname + '.svg?' + hex + '#svgfont') + '\') format(\'svg\');' + "\n";
+    scssOutput += '  font-weight: normal;' + "\n";
+    scssOutput += '  font-style: normal;' + "\n";
+
+    scssOutput += "\n\n";
 
     scssOutput += '@mixin icon {' + "\n";
     scssOutput += '  display: inline-block;' + "\n";
