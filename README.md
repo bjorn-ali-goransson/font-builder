@@ -56,6 +56,17 @@ The kitchen sink
 Example of generated _icons.scss file
 -------------------------------------
 
+    @font-face {
+      font-family: 'built-font';
+      src: url('built-font.eot?e7822c');
+      src: url('built-font.eot?e7822c#iefix') format('embedded-opentype'),
+        url('built-font.ttf?e7822c') format('truetype'),
+        url('built-font.woff?e7822c') format('woff'),
+        url('built-font.svg?e7822c#svgfont') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
     @mixin icon {
       display: inline-block;
       font-family: 'built-font';
