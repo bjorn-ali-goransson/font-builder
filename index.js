@@ -73,18 +73,20 @@ module.exports = function (options) {
     sources[fontAlias] = loadSvg(fontPath);
   });
   
-  _.each(options.glyphs, function (alias, name) {
-    if(name.indexOf(':') == -1){
-      throw 'Glyph key ' + name + ' was not prefixed (which font should I use?)';
+  _.each(options.glyphs, function (alias, glyphReference) {
+    if(glyphReference.indexOf(':') == -1){
+      throw 'Glyph key ' + glyphReference + ' was not prefixed (which font should I use?)';
       return;
     }
     
-    var nameSplit = name.split(':');
+    var glyphReferenceSplit = glyphReference.split(':');
     
-    var name = nameSplit[1];
-    var source = sources[nameSplit[0]];
+    var name = glyphReferenceSplit[1];
+    var source = sources[glyphReferenceSplit[0]];
 
     var unicodeValue = parseInt(name, 16);
+
+    var foundGlyph = false;
     
     _.each(source.svgGlyphs, function (svgGlyph) {
       if(svgGlyph.getAttribute('unicode').charCodeAt(0) != unicodeValue){
@@ -96,6 +98,8 @@ module.exports = function (options) {
       if (!d) {
         return;
       }
+
+      foundGlyph = true;
 
       var unicode = svgGlyph.getAttribute('unicode');
       var width = svgGlyph.getAttribute('horiz-adv-x') || source.fontHorizAdvX;
@@ -114,6 +118,10 @@ module.exports = function (options) {
         .toString()
       });
     });
+
+    if (!foundGlyph) {
+        throw 'Did not find glyph ' + glyphReference;
+    }
   });
 
   var maxGlyphNameLength = Math.max.apply(null, _.map(options.glyphs, 'length'));
