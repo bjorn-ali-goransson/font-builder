@@ -35,21 +35,22 @@ The kitchen sink
 ----------------
 
     var defaults = {
-        fontname: 'built-font',
-        fonts: [],
-        defaultFont: null,
-        glyphs: [],
-        outputScss: true
+      fontname: 'built-font',
+      fonts: [],
+      defaultFont: null,
+      glyphs: [],
+      outputScss: true
     };
     var fontDefaults = {
-        fontUnitsPerEm: 512,
-        ascent: 480,
-        descent: -32,
-        horizAdvX: 512
+      fontUnitsPerEm: 512,
+      ascent: 480,
+      descent: -32,
+      horizAdvX: 512
     };
     var pathDefaults = {
-        stylesDirectory: './css',
-        fontsDirectory: './fonts'
+      stylesDirectory: './styles',
+      fontsDirectory: './fonts',
+      fontsUrl: ''
     };
     
 Example of generated _icons.scss file
