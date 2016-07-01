@@ -112,8 +112,6 @@ module.exports = function (arg1, arg2) {
 
       var unicode = svgGlyph.getAttribute('unicode');
       var width = svgGlyph.getAttribute('horiz-adv-x') || source.fontHorizAdvX;
-      
-      console.log(options.ascent, source.fontAscent, source.fontUnitsPerEm, options.fontUnitsPerEm, options.ascent - (source.fontAscent / source.fontUnitsPerEm * options.fontUnitsPerEm));
 
       resultingGlyphs.push({
       glyphName: alias,
