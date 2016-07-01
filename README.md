@@ -35,7 +35,7 @@ All available options
     var pathDefaults = {
       stylesDirectory: './styles',
       fontsDirectory: './fonts',
-      fontsUrl: ''
+      fontsUrl: '../fonts'
     };
     
 Example of generated _icons.scss file
