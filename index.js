@@ -9,8 +9,8 @@ var XMLDOMParser  = require('xmldom').DOMParser;
 module.exports = function (options) {
   var defaults = {
     fontname: 'built-font',
-    fonts: [],
-    glyphs: [],
+    fonts: {},
+    glyphs: {},
     outputScss: true
   };
   var fontDefaults = {
