@@ -33,7 +33,7 @@ module.exports = function (arg1, arg2) {
   var pathDefaults = {
     stylesDirectory: './styles',
     fontsDirectory: './fonts',
-    fontsUrl: ''
+    fontsUrl: '../fonts'
   };
 
   options = _.assign({}, defaults, fontDefaults, pathDefaults, options);
