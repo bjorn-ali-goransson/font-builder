@@ -6,27 +6,14 @@ Choose icons (glyphs) from a font
 ---------------------------------
 
     fontBuilder(
-        './font-awesome/fonts/fontawesome-webfont.svg',
         {
-            'f16d': 'lorem'
-        }
-    );
-    
-Choose icons from several fonts:
---------------------------------
-
-    fontBuilder(
-        {
-            defaultFont: './streamline-24px/fonts/streamline-24px.svg',
             fonts: {
-                'fa':   './Static/Vendor/font-awesome/fonts/fontawesome-webfont.svg'
+                'fa': './Vendor/font-awesome/fonts/fontawesome-webfont.svg'
             },
             glyphs: {
-                'e62a': 'arrow-left',
-                'e62b': 'arrow-right',
-                'fa:f08c': 'linkedin',
-                'fa:f082': 'facebook',
-                'fa:f16d': 'instagram'
+                'fa:f067': 'plus',
+                'fa:f068': 'minus',
+                'fa:f021': 'refresh'
             }
         }
     );
