@@ -59,15 +59,15 @@ module.exports = function (arg1, arg2) {
     var source = {};
         
     source.contents = fs.readFileSync(src).toString();
-    source.xml =    (new XMLDOMParser()).parseFromString(source.contents, "application/xml");
+    source.xml = (new XMLDOMParser()).parseFromString(source.contents, "application/xml");
     
-    source.svgFont =   source.xml.getElementsByTagName('font')[0];
+    source.svgFont = source.xml.getElementsByTagName('font')[0];
     source.svgFontface = source.xml.getElementsByTagName('font-face')[0];
-    source.svgGlyphs =   source.xml.getElementsByTagName('glyph');
+    source.svgGlyphs = source.xml.getElementsByTagName('glyph');
 
-    source.fontHorizAdvX =  source.svgFont.getAttribute('horiz-adv-x');
-    source.fontAscent =   source.svgFontface.getAttribute('ascent');
-    source.fontUnitsPerEm = source.svgFontface.getAttribute('units-per-em') || 1000;
+    source.fontHorizAdvX = +source.svgFont.getAttribute('horiz-adv-x');
+    source.fontAscent = +source.svgFontface.getAttribute('ascent');
+    source.fontUnitsPerEm = +source.svgFontface.getAttribute('units-per-em') || 1000;
 
     source.scale = options.fontUnitsPerEm / source.fontUnitsPerEm;
     
@@ -101,7 +101,7 @@ module.exports = function (arg1, arg2) {
     
     _.each(source.svgGlyphs, function (svgGlyph) {
       if(svgGlyph.getAttribute('unicode').charCodeAt(0) != unicodeValue){
-      return;
+        return;
       }
       
       var d = svgGlyph.getAttribute('d');
@@ -113,12 +113,14 @@ module.exports = function (arg1, arg2) {
       var unicode = svgGlyph.getAttribute('unicode');
       var width = svgGlyph.getAttribute('horiz-adv-x') || source.fontHorizAdvX;
       
+      console.log(options.ascent, source.fontAscent, source.fontUnitsPerEm, options.fontUnitsPerEm, options.ascent - (source.fontAscent / source.fontUnitsPerEm * options.fontUnitsPerEm));
+
       resultingGlyphs.push({
       glyphName: alias,
       unicode: unicodeValue.toString(16),
       horizAdvX: Math.floor(width / source.fontUnitsPerEm * options.fontUnitsPerEm),
       d: new svgPath(d)
-        // .translate(0, -source.fontAscent)
+        .translate(0, source.fontAscent / source.fontUnitsPerEm * options.fontUnitsPerEm)
         .scale(source.scale, source.scale)
         .abs()
         .round(1)
@@ -126,9 +128,6 @@ module.exports = function (arg1, arg2) {
         .round(1)
         .toString()
       });
-      
-      //width: (width*scale).toFixed(1),
-      //height: 80
     });
   });
 
