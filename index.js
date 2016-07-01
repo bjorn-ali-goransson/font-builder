@@ -116,7 +116,7 @@ module.exports = function (arg1, arg2) {
       resultingGlyphs.push({
       glyphName: alias,
       unicode: unicodeValue.toString(16),
-      horizAdvX: Math.floor(width / source.fontUnitsPerEm * defaultSvgSource.fontUnitsPerEm),
+      horizAdvX: Math.floor(width / source.fontUnitsPerEm * options.fontUnitsPerEm),
       d: new svgPath(d)
         // .translate(0, -source.fontAscent)
         .scale(source.scale, source.scale)
