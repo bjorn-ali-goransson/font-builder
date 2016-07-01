@@ -211,4 +211,5 @@ module.exports = function (options) {
   fs.writeFileSync(path.join(options.fontsDirectory, options.fontname + '.woff'), new Buffer(require('ttf2woff')(ttfOutput).buffer));
   // fs.writeFileSync(path.join(fontsDirectory, options.fontname + '.woff2'), require('ttf2woff2')(ttfOutput));
   // last line doesnt work from within task explorer/gulp.
+  // when it starts working again, add "ttf2woff2": "^2.0.3" to package.json.
 }

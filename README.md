@@ -1,6 +1,5 @@
 Also generates .scss mixins and classes for you to use, with correct code points and aliases.
 
-Note that some optional dependencies may fail for ttf2woff2. In addition, ttf2woff2 doesn't seem to work when called from gulp (so I've commented it out).
 
 Usage
 ---------------------------------
