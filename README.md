@@ -5,18 +5,16 @@ Note that some optional dependencies may fail for ttf2woff2. In addition, ttf2wo
 Choose icons (glyphs) from a font
 ---------------------------------
 
-    fontBuilder(
-        {
-            fonts: {
-                'fa': './Vendor/font-awesome/fonts/fontawesome-webfont.svg'
-            },
-            glyphs: {
-                'fa:f067': 'plus',
-                'fa:f068': 'minus',
-                'fa:f021': 'refresh'
-            }
-        }
-    );
+    fontBuilder({
+      fonts: {
+        'fa': './Vendor/font-awesome/fonts/fontawesome-webfont.svg'
+      },
+      glyphs: {
+        'fa:f067': 'plus',
+        'fa:f068': 'minus',
+        'fa:f021': 'refresh'
+      }
+    });
     
 The kitchen sink
 ----------------
