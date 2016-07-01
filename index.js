@@ -31,7 +31,7 @@ module.exports = function (arg1, arg2) {
     horizAdvX: 512
   };
   var pathDefaults = {
-    stylesDirectory: './css',
+    stylesDirectory: './styles',
     fontsDirectory: './fonts'
   };
 
