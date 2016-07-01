@@ -163,6 +163,7 @@ module.exports = function (arg1, arg2) {
     scssOutput += '    url(\'' + path.join(options.fontsUrl, options.fontname + '.svg?' + hex + '#svgfont') + '\') format(\'svg\');' + "\n";
     scssOutput += '  font-weight: normal;' + "\n";
     scssOutput += '  font-style: normal;' + "\n";
+    scssOutput += '}';
 
     scssOutput += "\n\n";
 
