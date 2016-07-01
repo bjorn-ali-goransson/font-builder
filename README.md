@@ -22,7 +22,6 @@ All available options
     var defaults = {
       fontname: 'built-font',
       fonts: [],
-      defaultFont: null,
       glyphs: [],
       outputScss: true
     };
